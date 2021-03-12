@@ -3,3 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: OpenSans;
+  src: url("./fonts/open-sans/OpenSans-Regular.ttf");
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "OpenSans", cursive;
+  color: #333;
+}
