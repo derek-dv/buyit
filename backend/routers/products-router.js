@@ -4,6 +4,16 @@ const Product = require("../models/products");
 const productRouter = express.Router();
 
 /**
+ * GET REQUEST FOR ALL PRODUCTS
+ */
+
+productRouter.get("/", async (req, res) => {
+  const products = await Product.find({});
+  console.log(products);
+  res.send(products);
+});
+
+/**
  * API FOR CREATING NEW PRODUCTS
  *
  */
