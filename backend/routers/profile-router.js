@@ -47,16 +47,15 @@ profileRouter.post("/create", async (req, res) => {
 
 profileRouter.post("/upload", upload.single("profile"), async (req, res) => {
   const profile = await Profile.findOne({ _id: req.body.user_id });
+  console.log(profile);
   if (profile !== null) {
-    profile.profile_img = "ass";
     profile.set(
       "profile_img",
       "http://localhost:5000/profile/" + req.file.filename
     );
     profile.save();
     return res.json({ profile });
-  }
-  res.status(400).json({ response: "error", msg: "No image uploaded" });
+  } else res.status(400).json({ response: "error", msg: "No image uploaded" });
 });
 
 module.exports = profileRouter;
