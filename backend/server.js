@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const productRouter = require("./routers/products-router");
 const profileRouter = require("./routers/profile-router");
 const userRouter = require("./routers/userRouter");
 
@@ -23,6 +24,8 @@ app.use("/api/user", userRouter);
 app.use("/profile", express.static("upload/images"));
 
 app.use("/api/profile", profileRouter);
+
+app.use("/api/products", productRouter);
 
 app.listen(5000, () => {
   console.log("All good");
