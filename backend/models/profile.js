@@ -9,7 +9,7 @@ const schema = mongoose.Schema(
     last_name: {
       type: String,
       required: true,
-      unique: true,
+      unique: false,
     },
     profile_img: {
       type: String,
@@ -26,6 +26,11 @@ const schema = mongoose.Schema(
     description: {
       type: String,
       required: false,
+    },
+    user_id: {
+      type: String,
+      required: true,
+      unique: true,
     },
   },
   {
