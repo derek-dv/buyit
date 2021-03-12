@@ -1,5 +1,22 @@
 const express = require("express");
+const path = require("path");
+const multer = require("multer");
 const Product = require("../models/products");
+
+/**
+ * Multer configuration
+ */
+
+const storage = multer.diskStorage({
+  destination: "./upload/images/profiles",
+  filename: (req, file, cb) =>
+    cb(
+      null,
+      `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`
+    ),
+});
+
+const upload = multer({ storage });
 
 const productRouter = express.Router();
 
@@ -51,5 +68,10 @@ productRouter.post("/create", (req, res) => {
 
   return res.json(product);
 });
+
+/**
+ * Add/update product picture
+ */
+productRouter.post();
 
 module.exports = productRouter;
