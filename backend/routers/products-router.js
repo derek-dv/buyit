@@ -8,7 +8,7 @@ const Product = require("../models/products");
  */
 
 const storage = multer.diskStorage({
-  destination: "./upload/images/profiles",
+  destination: "./upload/images/products",
   filename: (req, file, cb) =>
     cb(
       null,
@@ -72,6 +72,17 @@ productRouter.post("/create", (req, res) => {
 /**
  * Add/update product picture
  */
-productRouter.post();
+productRouter.post("/upload", upload.single("product"), async (req, res) => {
+  const product = await Product.findOne({ _id: req.body._id });
+
+  // If product exists,
+  if (product !== null) {
+    product.set({
+      imgUrl: "http://localhost:5000/products/" + req.file.filename,
+    });
+    product.save();
+    res.json(product);
+  }
+});
 
 module.exports = productRouter;
