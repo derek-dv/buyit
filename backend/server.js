@@ -21,7 +21,9 @@ app.get("/", (req, res) => {
 
 app.use("/api/user", userRouter);
 
-app.use("/profile", express.static("upload/images"));
+app.use("/profile", express.static("upload/images/profile"));
+
+app.use("/products", express.static("upload/images/product"));
 
 app.use("/api/profile", profileRouter);
 

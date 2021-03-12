@@ -4,7 +4,7 @@ const multer = require("multer");
 const Profile = require("../models/profile");
 
 const storage = multer.diskStorage({
-  destination: "./upload/images",
+  destination: "./upload/images/profile",
   filename: (req, file, cb) => {
     return cb(
       null,
