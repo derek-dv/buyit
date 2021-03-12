@@ -16,11 +16,12 @@ productRouter.post("/create", (req, res) => {
     name: req.body.name,
     brand: req.body.brand,
     price: req.body.price,
+    category: req.body.category,
     description,
     available: available,
     inStock: req.body.price,
-    imgUrl: "",
-    dateUpdated: req.body.dateUpdated,
+    imgUrl: "empty",
+    dateUpdated: Date().toString(),
   });
 
   product.save();
