@@ -11,6 +11,7 @@ const schema = mongoose.Schema({
   dateUpdated: { type: String, required: true },
   color: { type: String },
   imgUrl: { type: String, required: true },
+  rating: { type: String, required: false },
 });
 
 const Product = mongoose.model("Product", schema);
