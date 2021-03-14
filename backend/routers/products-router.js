@@ -85,4 +85,36 @@ productRouter.post("/upload", upload.single("product"), async (req, res) => {
   }
 });
 
+//Update the product
+
+productRouter.put("/update/:id", (req, res) => {
+  Product.findOne({ _id: req.params.id })
+    .then((product) => {
+      product.set({
+        name: req.body.name ? req.body.name : product.name,
+        brand: req.body.brand ? req.body.brand : product.brand,
+        description: req.body.description
+          ? req.body.description
+          : product.brand,
+        category: req.body.category ? req.body.category : product.category,
+        available: req.body.available ? req.body.available : product.available,
+        price: req.body.price ? req.body.price : product.price,
+        inStock: req.body.inStock ? req.body.inStock : product.inStock,
+        dateUpdated: req.body.dateUpdated
+          ? req.body.dateUpdated
+          : product.dateUpdated,
+        color: req.body.color ? req.body.color : product.color,
+        rating: req.body.rating ? req.body.rating : product.rating,
+      });
+
+      product.save();
+      res.send(product);
+    })
+    .catch((err) => {
+      return res
+        .status(404)
+        .json({ response: "error", message: "Product does" });
+    });
+});
+
 module.exports = productRouter;
