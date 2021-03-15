@@ -1,0 +1,25 @@
+.ProductHome {
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+  padding: 1em;
+}
+
+.ProductHome__link {
+  text-decoration: none;
+}
+
+.ProductHome__img {
+  height: 15em;
+  margin-bottom: 0.5rem;
+}
+
+.ProductHome__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ProductHome p {
+  font-size: small;
+  color: #333;
+}
