@@ -59,9 +59,10 @@ productRouter.post("/create", (req, res) => {
     category: req.body.category,
     description,
     available: available,
-    inStock: req.body.price,
+    inStock: req.body.inStock,
     imgUrl: "empty",
     dateUpdated: Date().toString(),
+    rating: req.body.rating ? req.body.rating : "none",
   });
 
   product.save();
@@ -97,7 +98,11 @@ productRouter.put("/update/:id", (req, res) => {
           ? req.body.description
           : product.brand,
         category: req.body.category ? req.body.category : product.category,
-        available: req.body.available ? req.body.available : product.available,
+        available: req.body.available
+          ? req.body.available
+          : req.body.inStock === "0"
+          ? "false"
+          : product.available,
         price: req.body.price ? req.body.price : product.price,
         inStock: req.body.inStock ? req.body.inStock : product.inStock,
         dateUpdated: req.body.dateUpdated
