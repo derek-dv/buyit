@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { Delete, Remove, RemoveFromQueue } from "@material-ui/icons";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeCart } from "../actions/cart_actions";
 
 const ProductCart = (props) => {
   const [quantity, setQuantity] = useState(props.quantity);
+  const dispatch = useDispatch();
   useEffect(() => {
     setQuantity(props.quantity);
   }, [props.quantity]);
+
+  const removeHandler = () => {
+    alert("OK");
+    dispatch(removeCart(props.id));
+  };
   return (
     <div className="summary__item">
       <img src={props.img} alt={props.title} className="summary__img" />
@@ -25,7 +34,14 @@ const ProductCart = (props) => {
           </option>
         ))}
       </select>
-      <button className="summary__button">Remove</button>
+      <button
+        className="summary__button"
+        style={{ alignItems: "center" }}
+        onClick={removeHandler}
+      >
+        <Delete />
+        Remove
+      </button>
     </div>
   );
 };
