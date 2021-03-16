@@ -12,7 +12,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Route exact path="/" component={Home} />
-        <Route exact path="/:id" component={ProductDetail} />
+        <Route exact path="/products/:id" component={ProductDetail} />
         <Route exact path="/cart/:id" component={AddToCart} />
       </BrowserRouter>
     </Provider>
