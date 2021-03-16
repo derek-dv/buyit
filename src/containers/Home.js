@@ -49,7 +49,7 @@ const Home = () => {
                   src={product.imgUrl}
                   title={product.name}
                   price={product.price}
-                  url={product._id}
+                  url={`products/${product._id}`}
                   rating={product.rating}
                 />
               ))}
