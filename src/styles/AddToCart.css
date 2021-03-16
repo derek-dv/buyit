@@ -65,6 +65,8 @@
   padding: 1em;
   width: 9em;
   font-weight: bolder;
+  display: flex;
+  justify-content: space-around;
 }
 
 .summary__button:hover {
