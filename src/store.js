@@ -3,6 +3,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { addToCart } from "./reducers/cart";
 import { productDetail, products } from "./reducers/products";
+import { login, register } from "./reducers/auth";
+import { alert } from "./reducers/alert";
 
 const initialState = {};
 
@@ -10,6 +12,9 @@ const reducer = combineReducers({
   products: products,
   productDetail: productDetail,
   cart: addToCart,
+  login,
+  register,
+  alerts: alert,
 });
 
 const middleware = [thunk];
