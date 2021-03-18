@@ -1,0 +1,11 @@
+.Alert {
+  position: absolute;
+  padding: 0.5em 1em;
+  background-color: #6fd148;
+  left: 45%;
+  margin-top: 1em;
+}
+
+.error {
+  background-color: #e92111;
+}
