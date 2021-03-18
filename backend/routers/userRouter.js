@@ -62,15 +62,22 @@ userRouter.post("/login", async (req, res) => {
 
   if (user) {
     if (bcrypt.compareSync(req.body.password, user.password)) {
-      console.log(user.name + " login success for user\n" + user.name);
-      return res.send({ success: "login success", token: generateToken(user) });
+      console.log(
+        user.name + " login success for user\n" + user.name.split(" ")[0]
+      );
+      res.send({
+        success: "login success",
+        token: generateToken(user),
+        name: user.name.split(" ")[0],
+      });
     } else {
       console.log(user.name + " incorrect password\n");
-      return res.status(400).send({ error: "Incorrect password" });
+      res.status(401).send({ error: "Incorrect password" });
     }
   } else {
     console.log("email does not exist\n");
-    return res.status(404).send({ error: "Email does not exist" });
+    res.status(401).json({ error: "Email does not exist" });
+    return;
   }
 });
 
