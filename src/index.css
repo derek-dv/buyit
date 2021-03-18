@@ -9,6 +9,9 @@
   src: url("./fonts/open-sans/OpenSans-Regular.ttf");
 }
 
+.App {
+  position: relative;
+}
 html {
   box-sizing: border-box;
 }
