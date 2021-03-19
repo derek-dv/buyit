@@ -8,6 +8,7 @@ import AddToCart from "./containers/AddToCart";
 import Login from "./containers/Login";
 import Register from "./containers/Register";
 import Alert from "./components/Alert";
+import Profile from "./containers/Profile";
 const App = () => {
   const alerts = useSelector((state) => state.alerts);
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/cart" component={AddToCart} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/profile" component={Profile} />
       </div>
     </BrowserRouter>
   );
