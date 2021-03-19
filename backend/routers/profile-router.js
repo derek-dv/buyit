@@ -17,6 +17,14 @@ const upload = multer({ storage });
 
 const profileRouter = express.Router();
 
+//Get profile of a user when an id is provided.
+
+profileRouter.get("/:id", async (req, res) => {
+  const exist = await Profile.findOne({user_id: req.params.id})
+  if(!exist) res.status(404).send({response: "error", message: "User does not exist"})
+  else res.json(exist)
+})
+
 profileRouter.post("/create", async (req, res) => {
   const exist = await Profile.findOne({ user_id: req.body.user_id });
   if (!exist) {
