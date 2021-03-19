@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Delete, Remove, RemoveFromQueue } from "@material-ui/icons";
+import { Delete } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeCart } from "../actions/cart_actions";
+import { addToCart, removeCart } from "../actions/cart_actions";
 
 const ProductCart = (props) => {
   const [quantity, setQuantity] = useState(props.quantity);
   const dispatch = useDispatch();
   useEffect(() => {
-    setQuantity(props.quantity);
-  }, [props.quantity]);
+    dispatch(addToCart(props.id, quantity));
+  }, [quantity, dispatch, props.id]);
 
   const removeHandler = () => {
-    alert("OK");
     dispatch(removeCart(props.id));
   };
   return (
