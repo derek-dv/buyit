@@ -1,22 +1,14 @@
 .main {
   display: flex;
-  height: 100vh;
+  height: fit-content;
 }
 
 .main__side {
+  margin-left: 2em;
+  margin-top: 1em;
   background-color: #efefef;
-  width: 15rem;
-}
-
-.main__side__search {
-  margin: 0.5em 0;
-}
-
-.main__side__input {
-  padding: 0.5em;
-  background-color: transparent;
-  outline: 0;
-  border: none;
+  width: 12rem;
+  max-width: 20rem;
 }
 
 .main__side__filter {
@@ -26,10 +18,11 @@
 
 .main__side__button {
   outline: none;
-  font-size: large;
-  border: 0.5px solid #999;
   padding: 0.8em;
   cursor: pointer;
+  border: none;
+  width: auto;
+  border-bottom: 3px solid #a50225;
   transition: all 100ms ease-in;
 }
 
@@ -46,12 +39,6 @@
 
 .main__right__top {
   margin-bottom: 2em;
-}
-
-.main__right__top_detail {
-  margin-left: 5em;
-  text-decoration: none;
-  color: #e42176;
 }
 
 .main__right__top_detail:hover {

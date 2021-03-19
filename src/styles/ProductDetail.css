@@ -5,15 +5,16 @@
 }
 
 .product__left {
-  flex: 0.5;
+  flex: 1;
 }
 
 .product__img {
-  height: 25rem;
+  max-width: 30em;
 }
 
 .product__middle {
-  flex: 0.5;
+  flex: 1;
+  max-width: 30rem;
 }
 
 .product__middle > div {

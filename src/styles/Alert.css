@@ -2,8 +2,11 @@
   position: absolute;
   padding: 0.5em 1em;
   background-color: #6fd148;
-  left: 45%;
+  left: 50%;
+  transform: translateX(-50%);
   margin-top: 1em;
+  opacity: 0.7;
+  border-radius: 0.5rem;
 }
 
 .error {

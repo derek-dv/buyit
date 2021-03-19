@@ -31,23 +31,26 @@
 
 .summary__item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 1em;
   margin: 1em;
 }
 
-.summary__item > a {
+.summary__title {
   text-decoration: none;
   color: #e42176;
+  text-align: center;
 }
 
-.summary__item > a:hover {
+.summary__title:hover {
   text-decoration: underline;
 }
 
-.summary__img {
-  height: 10rem;
+.summary__img,
+.summary__img__container {
+  max-width: 10rem;
+  max-height: 15rem;
 }
 
 .summary__select {
