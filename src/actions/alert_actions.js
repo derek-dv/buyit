@@ -5,5 +5,5 @@ export const addAlert = (id, message, type) => (dispatch) => {
 
   setTimeout(() => {
     dispatch({ type: all.ALERT_REMOVE, payload: id });
-  }, 10000);
+  }, 5000);
 };
