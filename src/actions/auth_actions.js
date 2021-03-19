@@ -35,6 +35,7 @@ export const register = (data) => (dispatch) => {
     .then((res) => {
       dispatch({ type: SIGNUP_SUCCESS, payload: res.data });
       dispatch(addAlert(v4(), `Account created for ${data.name}`));
+      dispatch(login({ email: data.email, password: data.password }));
     })
     .catch((err) => {
       dispatch({ type: SIGNUP_FAIL, payload: err.response });
