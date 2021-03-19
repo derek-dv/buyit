@@ -1,9 +1,11 @@
 import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
 import ProductHome from "../components/ProductHome";
 import "../styles/Home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { listProduct } from "../actions/products_actions";
+import SearchHome from "../components/SearchHome";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,13 +17,6 @@ const Home = () => {
   return (
     <div className="main">
       <div className="main__side">
-        <div className="main__side__search">
-          <input
-            type="text"
-            className="main__side__input"
-            placeholder="search"
-          />
-        </div>
         <div className="main__side__filter">
           <button className="main__side__button">Shorts</button>
           <button className="main__side__button">Shirts</button>
@@ -34,13 +29,11 @@ const Home = () => {
       </div>
       <div className="main__right">
         {loading ? (
-          <p>Loading</p>
+          <Loader className="loader" color="#e42176" />
         ) : (
           <Fragment>
             <div className="main__right__top">
-              <Link to="/" className="main__right__top_detail">
-                Detailed shirts filter {">"}
-              </Link>
+              <SearchHome />
             </div>
             <div className="container">
               {products.map((product) => (
