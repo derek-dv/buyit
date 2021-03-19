@@ -1,0 +1,35 @@
+.searchHome {
+  display: flex;
+  justify-content: center;
+}
+.searchHome__form {
+  display: flex;
+  align-items: center;
+}
+
+.searchHome__input {
+  padding: 1em;
+  padding-left: 0.5em;
+  margin-right: 2em;
+  width: 30em;
+  border-radius: 1rem;
+  height: 3em;
+  outline: none;
+  border: 1px solid #333333;
+}
+
+.searchHome__button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5em 1em;
+  border-radius: 1rem;
+  background-color: #f785ac;
+  transition: all 200ms;
+  border: 1px solid #e42176;
+}
+
+.searchHome__button:hover {
+  background-color: #e42176;
+  cursor: pointer;
+}
