@@ -15,7 +15,7 @@ const CartCategory = ({ cartItems }) => {
           inStock={product.inStock}
           id={product._id}
         />
-      ))}
+      )) }
 
       <div className="summary_total">
         <strong>TOTAL</strong>

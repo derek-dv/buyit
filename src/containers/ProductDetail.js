@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/ProductDetail.css";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from 'react-loader-spinner';
 import { productDetail } from "../actions/products_actions";
 import Rating from "../components/Rating";
 import { addToCart } from "../actions/cart_actions";
@@ -22,7 +23,16 @@ const ProductDetail = (props) => {
   return (
     <div className="ProductDetail">
       {loading ? (
-        <p>Loading</p>
+        <div
+          style={{
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"}}>
+        <Loader
+            className="loader"
+            color="#e42176"/>
+          </div>
       ) : (
         <div className="container container--sb product">
           <div className="product__left">

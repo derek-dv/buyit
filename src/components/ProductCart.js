@@ -16,10 +16,12 @@ const ProductCart = (props) => {
   };
   return (
     <div className="summary__item">
-      <img src={props.img} alt={props.title} className="summary__img" />
-      <Link to={`/products/${props.id}`}>
-        <strong className="summary__title">{props.title}</strong>
-      </Link>
+      <div className="summary__img__container">
+        <img src={props.img} alt={props.title} className="summary__img" />
+        <Link className="summary__title" to={`/products/${props.id}`} style={{display: "flex", flexDirection: "column"}}>
+          <strong>{props.title}</strong>
+        </Link>
+      </div>
       <p className="summary__price">{props.price}</p>
       <select
         className="summary__select"

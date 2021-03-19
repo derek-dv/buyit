@@ -12,7 +12,7 @@ const AddToCart = () => {
       <div className="addCart container container--sb">
         <div className="summary">
           <h2 className="summary__heading">Transaction Summary</h2>
-          <CartCategory cartItems={cartItems} />{" "}
+          <CartCategory cartItems={ cartItems} />{" "}
         </div>
         <div className="checkout">
           <div className="checkout__details">

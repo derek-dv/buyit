@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { login } from "../actions/auth_actions";
 import "../styles/Auth.css";
 
@@ -8,14 +8,14 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const redirect = props.location.search
-    ? props.location.search.split("=")[1]
-    : "";
+  const { isAuthenticated } = useSelector((state) => state.login);
 
+  useEffect(() => {
+    if (isAuthenticated) props.history.push("/");
+  }, [isAuthenticated, props.history]);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login({ email, password }));
-    <Redirect to="/" />;
   };
   return (
     <div className="auths">

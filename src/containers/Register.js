@@ -1,17 +1,22 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addAlert } from "../actions/alert_actions";
 import { v4 } from "uuid";
 import "../styles/Auth.css";
 import { register } from "../actions/auth_actions";
 
-const Register = () => {
+const Register = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.login);
+
+  useEffect(() => {
+    if (isAuthenticated) props.history.push("/");
+  }, [isAuthenticated, props.history]);
 
   const onSubmit = (e) => {
     e.preventDefault();

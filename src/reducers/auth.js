@@ -8,8 +8,10 @@ export const login = (
       return { loading: true, isAuthenticated: false };
     case types.LOGIN_SUCCESS:
       return {
+        id: action.payload.id,
         loading: false,
         user: action.payload.name,
+        isAdmin: action.payload.isAdmin,
         isAuthenticated: true,
       };
     case types.LOGIN_FAIL:
