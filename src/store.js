@@ -5,6 +5,7 @@ import { addToCart } from "./reducers/cart";
 import { productDetail, products } from "./reducers/products";
 import { login, register } from "./reducers/auth";
 import { alert } from "./reducers/alert";
+import { profile } from "./reducers/profile";
 
 const initialState = {};
 
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   login,
   register,
   alerts: alert,
+  profile,
 });
 
 const middleware = [thunk];
