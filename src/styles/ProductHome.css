@@ -2,6 +2,9 @@
   border: 1px solid grey;
   border-radius: 0.5rem;
   padding: 1em;
+  width: 15em;
+  height: 15em;
+  transition: all 200ms;
 }
 
 .ProductHome__link {
@@ -9,8 +12,15 @@
 }
 
 .ProductHome__img {
-  height: 15em;
+  width: 80%;
+  height: 80%;
   margin-bottom: 0.5rem;
+  transition: all 200ms;
+  text-align: center;
+}
+
+.ProductHome__img:hover {
+  transform: scale(1.05);
 }
 
 .ProductHome__details {

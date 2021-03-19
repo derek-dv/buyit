@@ -1,13 +1,19 @@
 .product {
   margin: 2em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product__left {
+  flex: 0.5;
 }
 
 .product__img {
-  height: 45rem;
+  height: 25rem;
 }
 
 .product__middle {
-  flex: 1;
+  flex: 0.5;
 }
 
 .product__middle > div {

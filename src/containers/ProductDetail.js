@@ -7,8 +7,9 @@ import { addToCart } from "../actions/cart_actions";
 
 const ProductDetail = (props) => {
   const { product, loading } = useSelector((state) => state.productDetail);
+  const { isAuthenticated } = useSelector((state) => state.login);
   const [quantity, setQuantity] = useState("1");
-  console.log(product);
+  console.log(isAuthenticated);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(productDetail(props.match.params.id));
@@ -16,7 +17,7 @@ const ProductDetail = (props) => {
 
   const clickHandler = () => {
     dispatch(addToCart(product._id, quantity));
-    props.history.push("/cart/" + product._id);
+    props.history.push("/cart");
   };
   return (
     <div className="ProductDetail">
@@ -79,7 +80,14 @@ const ProductDetail = (props) => {
                 </select>
               </div>
               <div className="container">
-                <button className="product__button" onClick={clickHandler}>
+                <button
+                  className="product__button"
+                  onClick={clickHandler}
+                  disabled={product.available ? false : true}
+                  style={{
+                    cursor: product.available ? "pointer" : "not-allowed",
+                  }}
+                >
                   ADD TO CART
                 </button>
               </div>
