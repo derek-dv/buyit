@@ -69,6 +69,8 @@ userRouter.post("/login", async (req, res) => {
         success: "login success",
         token: generateToken(user),
         name: user.name.split(" ")[0],
+        isAdmin: user.isAdmin,
+        id: user._id,
       });
     } else {
       console.log(user.name + " incorrect password\n");
@@ -81,8 +83,22 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
-/**
- * METHOD FOR HANDLING PROFILE PICTURE UPLOADS
- */
+userRouter.put("/make-admin", async (req, res) => {
+  const user = await User.findOne({ _id: req.body.id });
+  console.log("working");
+  if (user) {
+    user.set({ isAdmin: true });
+    user.save();
+    res.json({ isAdmin: true });
+  } else res.status(404).json({ message: "user does not exist" });
+});
+
+//Get all users in the system
+
+userRouter.get("/", async (req, res) => {
+  const users = await User.find({});
+  if (users) res.json(users);
+  else res.status(404).send({ error: "No users" });
+});
 
 module.exports = userRouter;
